@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-mist-50 text-aubergine-900 font-body antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background-color: #ff5a2e;
+  color: white;
+}
+
+:focus-visible {
+  outline: 2px solid #ff5a2e;
+  outline-offset: 2px;
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-white/60;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-coral-500 px-6 py-3 font-semibold text-white shadow-soft transition-all duration-200 hover:bg-coral-600 hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-aubergine-800 px-6 py-3 font-semibold text-white shadow-soft transition-all duration-200 hover:bg-aubergine-700 hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-aubergine-200 bg-white px-6 py-3 font-semibold text-aubergine-800 transition-all duration-200 hover:border-coral-400 hover:text-coral-600;
+  }
+
+  .card {
+    @apply rounded-xl2 bg-white shadow-soft border border-mist-200 transition-all duration-300;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-mist-300 bg-white px-4 py-3 text-sm text-aubergine-900 placeholder:text-aubergine-400 focus:border-coral-400 focus:ring-2 focus:ring-coral-100 outline-none transition;
+  }
+
+  .skeleton {
+    @apply relative overflow-hidden bg-mist-200 bg-[linear-gradient(110deg,#e6e6f0_8%,#f2f2f8_18%,#e6e6f0_33%)] bg-[length:200%_100%] animate-shimmer;
+  }
+
+  .section-eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.2em] text-coral-500;
+  }
+}
